@@ -136,6 +136,13 @@ a.degFaranheit {
     -webkit-text-fill-color: transparent;
     font-weight: bolder;
 }
+
+.openSourceCode {
+    background-image: url("https://media.giphy.com/media/d1E1brEoXc8cU7e0/giphy.gif");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+}
   
 .row {
     top: 20%;
