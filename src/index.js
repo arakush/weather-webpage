@@ -104,6 +104,9 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
+// Default city is Vancouver, BC, Canada
+searchCity("Vancouver");
+
 function showCity(event) {
   event.preventDefault();
   let currentCity = document.querySelector("#enter-city");
