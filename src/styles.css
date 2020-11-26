@@ -55,11 +55,22 @@ hr {
 hr.bottom {
     width: 300px;
 }
+
+li {
+    list-style: none;
+    padding-bottom: 100px;
+    width: 160px;
+}
   
 p {
     font-family: "Bebas Neue", sans-serif;
     color: #fff;
     opacity: 60%;
+}
+
+ul {
+    margin-top: 60px;
+    float: right;
 }
   
 p.codedByMe {
@@ -69,6 +80,10 @@ p.codedByMe {
     opacity: 30%;
     font-weight: bolder;
     font-size: 12px;
+}
+
+span {
+    display: inline-block;
 }
   
 a.degCelcius,
@@ -87,10 +102,11 @@ a.degFaranheit {
     border-radius: 2em;
     font-family: "Bebas Neue", sans-serif;
 }
-  
-.col-12 {
-    margin-top: 50px;
-    margin-bottom: 50px;
+
+.container {
+    margin: 0 auto;
+    padding-left: 80px;
+    padding-right: 80px;
 }
   
 .currentTemp {
@@ -142,11 +158,6 @@ a.degFaranheit {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bolder;
-}
-  
-.row {
-    top: 20%;
-    right: 8%;
 }
   
 #search-button,

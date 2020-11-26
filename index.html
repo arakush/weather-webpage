@@ -39,136 +39,139 @@
 
     <hr />
 
-    <div class="container" style="width:1000px;">
-      <div class="currentTemp" style="width:330px; float:left;">
-        <h4>
-          Loading current time . . .
-        </h4>
-        <br />
-        <h1>
-          Vancouver
-        </h1>
-        <h6 class="weatherDescription">
-          Showers
-        </h6>
-        <h2 class="citysCurrentTemp">
-          7°
-        </h2>
-        <h6 class="citysCurrentTempHigh">
-          H:7°
-        </h6>
-        <h6 class="citysCurrentTempLow">
-          L:4°
-        </h6>
-        
-        <div>
+    <div class="container" style="width:100%">
+      <div class="row">
+        <div class="currentTemp col-6">
+          <h4>
+            Loading current time . . .
+          </h4>
           <br />
-          <h6>
-            Humidity: 
-            <span class="humidityNum">
-              90%
-            </span>
+          <h1>
+            Vancouver
+          </h1>
+          <h6 class="weatherDescription">
+            Showers
           </h6>
+          <h2 class="citysCurrentTemp">
+            7°
+          </h2>
+          <h6 class="citysCurrentTempHigh">
+            H:7°
+          </h6>
+          <h6 class="citysCurrentTempLow">
+            L:4°
+          </h6>
+          <div>
+            <br />
+            <h6>
+              Humidity: 
+              <span class="humidityNum">
+                90%
+              </span>
+            </h6>
+          </div>
+          <div>
+            <h6>
+              Wind: 
+              <span class="windNum">
+                3 km/h
+              </span>
+            </h6>
+          </div>
         </div>
-        <div>
-          <h6>
-            Wind: 
-            <span class="windNum">
-              3 km/h
-            </span>
-          </h6>
+        <div class="col-6">
+          <ul>
+            <li id="day2">
+              <span class="dateAndTemp">
+                <h5 class="dayOfWeek">Monday</h5>
+                <p>
+                  <strong>
+                    14 |
+                  </strong>
+                  7
+                </p>
+              </span>
+              <span class="image">
+                <img src="images/rainCloud.png">
+                </img>
+              </span>
+            </li>
+            <li id="day3">
+              <span class="dateAndTemp">
+                <h5 class="dayOfWeek">Tuesday</h5>
+                <p>
+                  <strong>
+                    15 |
+                  </strong>
+                  7
+                </p>
+              </span>
+              <span class="image">
+                <img src="images/lightening.png">
+                </img>
+              </span>
+            </li>
+            <li id="day4">
+              <span class="dateAndTemp">
+                <h5 class="dayOfWeek">Wednesday</h5>
+                <p>
+                  <strong>
+                    15 |
+                  </strong>
+                  6
+                </p>
+              </span>
+              <span class="image">
+                <img src="images/partlyCloudy.png">
+                </img>
+              </span>
+            </li>
+            <li id="day5">
+              <span class="dateAndTemp">
+                <h5 class="dayOfWeek">Thursday</h5>
+                <p>
+                  <strong>
+                    14 |
+                  </strong>
+                  8
+                </p>
+              </span>
+              <span class="image">
+                <img src="images/rainCloud.png">
+                </img>
+              </span>
+            </li>
+            <li id="day6">
+              <span class="dateAndTemp">
+                <h5 class="dayOfWeek">Friday</h5>
+                <p>
+                  <strong>
+                    14 |
+                  </strong>
+                  9
+                </p>
+              </span>
+              <span class="image">
+                <img src="images/snowCloud.png">
+                </img>
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="row" style="width:180px; float:right;">
-        <div class="col-12" id="day2">
-          <span class="dateAndTemp">
-            <h5 class="dayOfWeek">Monday</h5>
-            <p>
-              <strong>
-                14 |
-              </strong>
-              7
-            </p>
-          </span>
-        <span class="image">
-          <img src="images/rainCloud.png">
-          </img>
-        </span>
-        </div>
-        <div class="col-12" id="day3">
-          <span class="dateAndTemp">
-            <h5 class="dayOfWeek">Tuesday</h5>
-            <p>
-              <strong>
-                15 |
-              </strong>
-              7
-            </p>
-          </span>
-          <span class="image">
-            <img src="images/lightening.png">
-            </img>
-          </span>
-        </div>
-        <div class="col-12" id="day4">
-          <span class="dateAndTemp">
-            <h5 class="dayOfWeek">Wednesday</h5>
-            <p>
-              <strong>
-                15 |
-              </strong>
-              6
-            </p>
-          </span>
-          <span class="image">
-            <img src="images/partlyCloudy.png">
-            </img>
-          </span>
-        </div>
-        <div class="col-12" id="day5">
-          <span class="dateAndTemp">
-            <h5 class="dayOfWeek">Thursday</h5>
-            <p>
-              <strong>
-                14 |
-              </strong>
-              8
-            </p>
-          </span>
-          <span class="image">
-            <img src="images/rainCloud.png">
-            </img>
-          </span>
-        </div>
-        <div class="col-12" id="day6">
-          <span class="dateAndTemp">
-            <h5 class="dayOfWeek">Friday</h5>
-            <p>
-              <strong>
-                14 |
-              </strong>
-              9
-            </p>
-          </span>
-          <span class="image">
-            <img src="images/snowCloud.png">
-            </img>
-          </span>
-        </div>
+      <div style="clear: both;">
+        <hr class="bottom" />
+        <p class="codedByMe">
+          This page is coded by 
+          <a href="https://www.linkedin.com/in/alexisrakush/" class="myName" target="_blank">
+            Alexis Rakush
+          </a>
+          <br />
+          <a href="https://github.com/arakush/weather-webpage" class="openSourceCode" target="_blank">
+            Open-source code
+          </a>
+        </p>
       </div>
-    </div>
-    <div style="clear: both;">
-      <hr class="bottom" />
-      <p class="codedByMe">
-        This page is coded by 
-        <a href="https://www.linkedin.com/in/alexisrakush/" class="myName" target="_blank">
-          Alexis Rakush
-        </a>
-        <br />
-        <a href="https://github.com/arakush/weather-webpage" class="openSourceCode" target="_blank">
-          Open-source code
-        </a>
-      </p>
     </div>
     <script src="src/index.js"></script>
   </body>
