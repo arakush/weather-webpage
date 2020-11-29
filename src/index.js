@@ -185,3 +185,7 @@ function currentTemp(event) {
 
 let currentbutton = document.querySelector("#current-location-button");
 currentbutton.addEventListener("click", currentTemp);
+
+function celciusOrFahrenheit() {
+
+}

@@ -87,11 +87,11 @@ span {
 }
   
 a.degCelcius,
-a.degFaranheit {
+a.degFahrenheit {
     color: #fff;
 }
   
-.celciusOrFaranheit {
+.celciusOrFahrenheit {
     float: right;
     border: 1px solid #000;
     padding: 6px 15px;
@@ -130,7 +130,7 @@ a.degFaranheit {
     -webkit-text-fill-color: transparent;
 }
   
-.degFaranheit:hover {
+.degFahrenheit:hover {
     text-decoration: none;
     background-image: url("https://media.giphy.com/media/d1E1brEoXc8cU7e0/giphy.gif");
     -webkit-background-clip: text;
