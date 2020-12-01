@@ -86,12 +86,23 @@ span {
     display: inline-block;
 }
   
-a.degCelcius,
-a.degFahrenheit {
+a#celsius-link,
+a#fahrenheit-link {
     color: #fff;
 }
+
+.active {
+    background-image: url("https://media.giphy.com/media/d1E1brEoXc8cU7e0/giphy.gif");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+}
   
-.celciusOrFahrenheit {
+.active:hover {
+    text-decoration: none;
+}
+
+.celsiusOrFahrenheit {
     float: right;
     border: 1px solid #000;
     padding: 6px 15px;
@@ -122,21 +133,7 @@ a.degFahrenheit {
 .image {
     position: absolute;
 }
-  
-.degCelcius:hover {
-    text-decoration: none;
-    background-image: url("https://media.giphy.com/media/d1E1brEoXc8cU7e0/giphy.gif");
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-  
-.degFahrenheit:hover {
-    text-decoration: none;
-    background-image: url("https://media.giphy.com/media/d1E1brEoXc8cU7e0/giphy.gif");
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-  
+
 .image {
     padding-top: 0;
     padding-left: 110px;

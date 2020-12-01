@@ -113,8 +113,6 @@ function showCity(event) {
   let cityElement = document.querySelector("h1");
   cityElement.innerHTML = `${currentCity.value}`;
   searchCity(currentCity.value);
-  let changeTitle = document.querySelector("title");
-  changeTitle.innerHTML = `Weather in ${currentCity.value} 🌦`;
 }
 
 let searchButton = document.querySelector("#find-form");
@@ -142,8 +140,16 @@ function showTemp(response) {
   let currentHumidity = document.querySelector("span.humidityNum");
   let currentWind = document.querySelector("span.windNum");
   let h1 = document.querySelector("h1");
+  let changeTitle = document.querySelector("title");
+  changeTitle.innerHTML = `Weather in ${response.data.name} 🌦`;
+
+  celsiusTemp = response.data.main.temp;
+
+  celsiusTempMax = response.data.main.temp_max;
+  celsiusTempMin = response.data.main.temp_min;
+
   // Current Temperature
-  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
+  currentTemp.innerHTML = `${Math.round(celsiusTemp)}°`;
   // Highest temperature of the day
   currentTempHigh.innerHTML = `H:${Math.round(response.data.main.temp_max)}°`;
   // Lowest temperature of the day
@@ -186,6 +192,39 @@ function currentTemp(event) {
 let currentbutton = document.querySelector("#current-location-button");
 currentbutton.addEventListener("click", currentTemp);
 
-function celciusOrFahrenheit() {
-
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".citysCurrentTemp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let fahrenheitTempMax = (celsiusTempMax * 9) / 5 + 32;
+  let fahrenheitTempMin = (celsiusTempMin * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemp)}°`;
+  let tempMax = document.querySelector(".citysCurrentTempHigh");
+  tempMax.innerHTML = `H:${Math.round(fahrenheitTempMax)}°`
+  let tempMin = document.querySelector(".citysCurrentTempLow");
+  tempMin.innerHTML = `L:${Math.round(fahrenheitTempMin)}°`
 }
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector(".citysCurrentTemp");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemp)}°`;
+  let tempMax = document.querySelector(".citysCurrentTempHigh");
+  tempMax.innerHTML = `H:${Math.round(celsiusTempMax)}°`
+  let tempMin = document.querySelector(".citysCurrentTempLow");
+  tempMin.innerHTML = `L:${Math.round(celsiusTempMin)}°`
+}
+
+let celsiusTemp = null;
+let celsiusTempMax = null;
+let celsiusTempMin = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
