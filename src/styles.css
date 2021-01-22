@@ -130,11 +130,11 @@ a#fahrenheit-link {
 }
   
 .dateAndTemp,
-.image {
+#img {
     position: absolute;
 }
 
-.image {
+#img {
     padding-top: 0;
     padding-left: 110px;
 }
