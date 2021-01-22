@@ -102,6 +102,9 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cf6b8194016912df82754ee3a929198&units=metric`;
 
   axios.get(apiUrl).then(showTemp);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=3cf6b8194016912df82754ee3a929198&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 // Default city is Vancouver, BC, Canada
@@ -130,7 +133,6 @@ let enterACity = document.querySelector("form#find-form");
 enterACity.addEventListener("submit", showCity);
 
 function showTemp(response) {
-  console.log(response.data.main.temp);
   let currentTemp = document.querySelector("h2.citysCurrentTemp");
   let currentTempHigh = document.querySelector("h6.citysCurrentTempHigh");
   let currentTempLow = document.querySelector("h6.citysCurrentTempLow");
@@ -176,6 +178,58 @@ function showTemp(response) {
   }
 }
 
+function forecastTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = standardClock[date.getHours()];
+  let minutes = date.getMinutes();
+  let newAmOrPm = amOrPm[date.getHours()];
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes} ${newAmOrPm}`;
+}
+
+function showForecast(response) {
+  console.log(response.data);
+
+  let forecast = null;
+
+  for (let i = 0; i < 5; i++) {
+    forecast = response.data.list[i];
+    let avgTemp = document.querySelector(`strong.temp${i}`);
+    avgTemp.innerHTML = `${Math.round(response.data.list[i].main.temp)}°`;
+    console.log(avgTemp);
+
+    let newDate = response.data.list[i].dt_txt;
+
+    let time = document.querySelector(`h5.dayOfWeek${i}`);
+
+    time.innerHTML = forecastTime(newDate);
+
+    console.log(time);
+
+    console.log(forecast);
+    
+  }
+
+  newCelsiusTemp0 = response.data.list[0].main.temp;
+  newCelsiusTemp1 = response.data.list[1].main.temp;
+  newCelsiusTemp2 = response.data.list[2].main.temp;
+  newCelsiusTemp3 = response.data.list[3].main.temp;
+  newCelsiusTemp4 = response.data.list[4].main.temp;
+
+  let icon0 = document.querySelector("img.image0");
+  icon0.setAttribute("src", `images/${response.data.list[0].weather[0].main}.png`);
+  let icon1 = document.querySelector("img.image1");
+  icon1.setAttribute("src", `images/${response.data.list[1].weather[0].main}.png`);
+  let icon2 = document.querySelector("img.image2");
+  icon2.setAttribute("src", `images/${response.data.list[2].weather[0].main}.png`);
+  let icon3 = document.querySelector("img.image3");
+  icon3.setAttribute("src", `images/${response.data.list[3].weather[0].main}.png`);
+  let icon4 = document.querySelector("img.image4");
+  icon4.setAttribute("src", `images/${response.data.list[4].weather[0].main}.png`);
+}
+
 function handlePosition(position) {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
@@ -200,11 +254,31 @@ function showFahrenheitTemp(event) {
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   let fahrenheitTempMax = (celsiusTempMax * 9) / 5 + 32;
   let fahrenheitTempMin = (celsiusTempMin * 9) / 5 + 32;
+
+  let newFahrenheitTemp0 = (newCelsiusTemp0 * 9) / 5 + 32;
+  let newFahrenheitTemp1 = (newCelsiusTemp1 * 9) / 5 + 32;
+  let newFahrenheitTemp2 = (newCelsiusTemp2 * 9) / 5 + 32;
+  let newFahrenheitTemp3 = (newCelsiusTemp3 * 9) / 5 + 32;
+  let newFahrenheitTemp4 = (newCelsiusTemp4 * 9) / 5 + 32;
+
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemp)}°`;
   let tempMax = document.querySelector(".citysCurrentTempHigh");
   tempMax.innerHTML = `H:${Math.round(fahrenheitTempMax)}°`
   let tempMin = document.querySelector(".citysCurrentTempLow");
   tempMin.innerHTML = `L:${Math.round(fahrenheitTempMin)}°`
+
+  let avgTemp0 = document.querySelector(`strong.temp0`);
+  avgTemp0.innerHTML = `${Math.round(newFahrenheitTemp0)}°`;
+  let avgTemp1 = document.querySelector(`strong.temp1`);
+  avgTemp1.innerHTML = `${Math.round(newFahrenheitTemp1)}°`;
+  let avgTemp2 = document.querySelector(`strong.temp2`);
+  avgTemp2.innerHTML = `${Math.round(newFahrenheitTemp2)}°`;
+  let avgTemp3 = document.querySelector(`strong.temp3`);
+  avgTemp3.innerHTML = `${Math.round(newFahrenheitTemp3)}°`;
+  let avgTemp4 = document.querySelector(`strong.temp4`);
+  avgTemp4.innerHTML = `${Math.round(newFahrenheitTemp4)}°`;
+
+
 }
 
 function showCelsiusTemp(event) {
@@ -217,11 +291,28 @@ function showCelsiusTemp(event) {
   tempMax.innerHTML = `H:${Math.round(celsiusTempMax)}°`
   let tempMin = document.querySelector(".citysCurrentTempLow");
   tempMin.innerHTML = `L:${Math.round(celsiusTempMin)}°`
+
+  let avgTemp0 = document.querySelector(`strong.temp0`);
+  avgTemp0.innerHTML = `${Math.round(newCelsiusTemp0)}°`;
+  let avgTemp1 = document.querySelector(`strong.temp1`);
+  avgTemp1.innerHTML = `${Math.round(newCelsiusTemp1)}°`;
+  let avgTemp2 = document.querySelector(`strong.temp2`);
+  avgTemp2.innerHTML = `${Math.round(newCelsiusTemp2)}°`;
+  let avgTemp3 = document.querySelector(`strong.temp3`);
+  avgTemp3.innerHTML = `${Math.round(newCelsiusTemp3)}°`;
+  let avgTemp4 = document.querySelector(`strong.temp4`);
+  avgTemp4.innerHTML = `${Math.round(newCelsiusTemp4)}°`;
+  
 }
 
 let celsiusTemp = null;
 let celsiusTempMax = null;
 let celsiusTempMin = null;
+let newCelsiusTemp0 = null;
+let newCelsiusTemp1 = null;
+let newCelsiusTemp2 = null;
+let newCelsiusTemp3 = null;
+let newCelsiusTemp4 = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
